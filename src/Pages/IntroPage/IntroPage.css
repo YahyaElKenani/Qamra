@@ -1,0 +1,52 @@
+.content-container { 
+    height: 100dvh;
+    width: 100dvw;
+    justify-content: space-between;
+}
+
+.right-section { 
+    height: 100%;
+    width: 50%;
+    min-width: 980px;
+    filter: contrast(0.85) brightness(0.7) saturate(1.6);
+}
+
+.left-section { 
+    width: calc(50% - 24px);
+    min-width: 450px;
+    height: 50%;
+    padding: 0 24px;
+}
+
+.logo { 
+    height: 250px;
+    margin-bottom: 0.6rem;
+}
+
+.slogan { 
+    font-size: 2.4rem;
+    color: #5E616A;
+    font-family: "Rakkas", serif !important; 
+}
+
+.label { 
+    font-size: 1.2rem;
+}
+
+button { 
+    background-color: #E8AA8C;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 5px;
+    width: 5vw;
+    min-width: 100px;
+}
+
+@media screen and (max-width: 991px) {
+    .content-container { 
+        justify-content: center;
+    }
+    .left-section { 
+        width: 50%;
+    }
+}

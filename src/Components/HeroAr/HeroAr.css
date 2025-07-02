@@ -1,0 +1,11 @@
+.hero-ar { 
+    direction: rtl;
+}
+
+.swiper-button-prev {
+  transform: translateX(-10px);
+}
+
+.swiper-button-next {
+  transform: translateX(15px);
+}

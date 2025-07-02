@@ -1,0 +1,22 @@
+.card { 
+    width: 20dvw;
+    min-width: 380px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+
+.card-texts { 
+    padding: 16px;
+}
+
+.card img { 
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* or 'contain' */
+    aspect-ratio: 4/3; /* optional, if you want consistency */
+}
+
+.card-btn,
+.hero-btn { 
+    color: #5E616A;
+}

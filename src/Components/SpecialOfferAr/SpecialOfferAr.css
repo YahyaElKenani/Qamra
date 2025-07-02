@@ -1,0 +1,8 @@
+.special-offerAr-container { 
+    direction: rtl;
+    text-wrap: nowrap;
+}
+
+.special-offerAr-container img { 
+    object-position: 0% !important;
+}

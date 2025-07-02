@@ -1,0 +1,106 @@
+.header-container,
+.headerAr-container { 
+    padding: 12px 105px;
+    width: 100dvw;
+    height: 120px;
+    position: fixed;
+    top: 0;
+    z-index: 999999999999999999999999;
+    transition: all 0.3s ease;
+}
+
+.header-logo { 
+    width: 5vw;
+    min-width: 100px;
+}
+
+.header-scrolled { 
+    background-color: #764d39 !important;
+}
+
+.header-logo.hide { 
+    display: none;
+}
+
+.nav-tab {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.5s ease;
+    font-size: 1.4rem;
+    color: #eaecf2
+}
+
+.nav-tab:not(.active) { 
+    opacity: 0.6;
+}
+
+.navbar-nav .nav-link.active { 
+    opacity: 1;
+    color: #eaecf2;
+}
+
+.nav-tab:hover { 
+    color: white;
+    opacity: 1;
+}
+
+.nav-tab::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    bottom: -4px;
+    height: 2px;
+    background-color: #E8AA8C;
+    transition: width 0.3s ease;
+}
+
+
+.nav-tab:hover::after {
+    width: 100%;
+}
+
+.nav-tab.active::after { 
+    width: 100%;
+}
+
+.icon { 
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+}
+
+.icon:hover { 
+    opacity: 1;
+}
+
+.custom-toggler { 
+    background-color: #eaecf2;
+}
+
+.offcanvas { 
+    z-index: 99999999999;
+}
+
+@media screen and (max-width: 767px) {
+    .nav-tab,
+    .active { 
+        color: #5E616A !important;
+    } 
+    .icon { 
+        color: #5E616A !important;
+    }
+    .header-btns,
+    .headerAr-btns { 
+        display: none !important;
+    }
+    .header-container,
+    .headerAr-container { 
+        padding: 12px 24px;
+    }
+    .header-logo { 
+        width: 17vw;
+        min-width: 80px;
+    }
+}

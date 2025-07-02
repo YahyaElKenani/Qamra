@@ -1,0 +1,30 @@
+footer { 
+    background-color: #E2DCD5;
+    padding: 36px 105px 12px;
+    height: fit-content;
+    min-height: 300px;
+}
+
+.social { 
+    height: 60px;
+    width: 60px;
+    padding: 0.6rem;
+    border-radius: 50%;
+    border: 1.5px solid #764d39;
+    /* font-size: 24px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.social:hover .icon { 
+    opacity: 1 !important;
+    color: white;
+}
+
+.social:hover { 
+    background-color: #E8AA8C;
+}

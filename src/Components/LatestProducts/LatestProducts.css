@@ -1,0 +1,12 @@
+.latest-products-container { 
+    padding: 50px 105px;
+    width: 100dvw;
+}
+
+.latest-products-container h1 { 
+    width: 100%;
+}
+
+.latest-products-heading { 
+    text-wrap: nowrap;
+}
