@@ -10,23 +10,29 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeLanguage } from '../../Slices/languageSlice';
-import {motion as Motion} from 'framer-motion'
-export default function Header({active}) { 
+import { motion as Motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom';
+export default function Header({active, showBg, disableAnimation}) { 
     const cart = useSelector((state) => state.cart.cart);
-    const dispatch = useDispatch()
-    const [showHeaderBg, setShowHeaderBg] = useState(false); 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [showHeaderBg, setShowHeaderBg] = useState(showBg || false); 
     const [menuExpanded, setMenuExpanded] = useState(false);
     useEffect(() => {
-        const handleScroll = () => { 
-            const offset = window.scrollY; 
-            setShowHeaderBg(offset > 50); 
+        if (disableAnimation) { 
+            return;
+        } else { 
+            const handleScroll = () => { 
+                const offset = window.scrollY; 
+                setShowHeaderBg(offset > 50); 
+            }
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
         }
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [])
-    useEffect(() => {
-        console.log(menuExpanded);
-    }, [menuExpanded]);
+    }, []);
+    const routeToCart = () => { 
+        navigate('/cart');
+    }
     return ( 
         <Motion.div
         initial={{opacity: 0}}
@@ -60,7 +66,7 @@ export default function Header({active}) {
                         <LanguageIcon sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => dispatch(changeLanguage())}/>
                     </Tooltip>
                     <Badge badgeContent={cart.length} color='primary' >
-                        <ShoppingCartIcon color='light' sx={{fontSize: '2rem'}} className='icon text-light'/>
+                        <ShoppingCartIcon color='light' sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => routeToCart()}/>
                     </Badge>
                 </div>
             </Nav>
@@ -73,7 +79,7 @@ export default function Header({active}) {
                     <LanguageIcon sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => dispatch(changeLanguage())}/>
                 </Tooltip>
                     <Badge badgeContent={cart.length} color='primary' >
-                        <ShoppingCartIcon color='light' sx={{fontSize: '2rem'}} className='icon text-light' />
+                        <ShoppingCartIcon color='light' sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => routeToCart()} />
                     </Badge>
             </div>
         </Motion.div>

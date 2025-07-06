@@ -11,19 +11,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeLanguage } from '../../Slices/languageSlice';
 import { motion as Motion } from 'framer-motion' 
-export default function HeaderAr({active}) { 
+export default function HeaderAr({active, showBg, disableAnimation}) { 
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
     const language = useSelector((state) => state.language.language); 
-    const [showHeaderBg, setShowHeaderBg] = useState(false); 
+    const [showHeaderBg, setShowHeaderBg] = useState(showBg || false); 
     const [menuExpanded, setMenuExpanded] = useState(false);
     useEffect(() => {
-        const handleScroll = () => { 
-            const offset = window.scrollY; 
-            setShowHeaderBg(offset > 50); 
+        if (disableAnimation) { 
+            return;
+        } else { 
+            const handleScroll = () => { 
+                const offset = window.scrollY; 
+                setShowHeaderBg(offset > 50); 
+            }
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
         }
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
     }, [])
     useEffect(() => {
         console.log(language);

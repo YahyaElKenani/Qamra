@@ -10,7 +10,12 @@ import heroBag1 from '../../assets/Images/image2_photogrid.png'
 import heroBag2 from '../../assets/Images/carousel-img.jpg'
 import heroBag3 from '../../assets/Images/carousel-img2.jpg'
 import { motion as Motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom';
 export default function HeroAr() { 
+    const navigate = useNavigate();
+    const routeToShop = () => { 
+        navigate('/shop');
+    }
     return ( 
         <Motion.div 
             initial={{opacity: 0}}
@@ -33,7 +38,7 @@ export default function HeroAr() {
                     <div className='hero-content d-flex flex-column ar-text'>
                         <div className='hero-main-text fw-bold'>مجموعة جديدة</div>
                         <div className='hero-sub-text mb-2'>مصنوعة بأيدينا بكل حُب, ومصنوعة علشان تبقي مميزة وتلفتي النظر</div>
-                        <button className='mt-2 hero-btn'>تسوق الآن</button>
+                        <button className='mt-2 hero-btn' onClick={() => routeToShop()}>تسوق الآن</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -41,7 +46,7 @@ export default function HeroAr() {
                     <div className='hero-content d-flex flex-column ar-text'>
                         <div className='hero-main-text fw-bold'>جريئة • فريدة • زيك</div>
                         <div className='hero-sub-text mb-2'>اكتشفي سحر شنط الكليم المودرن</div>
-                        <button className='mt-2 hero-btn'>تسوق الآن</button>
+                        <button className='mt-2 hero-btn' onClick={() => routeToShop()}>تسوق الآن</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -49,7 +54,7 @@ export default function HeroAr() {
                     <div className='hero-content hero-content-ar d-flex flex-column ar-text'>
                         <div className='hero-main-text fw-bold'>لما التراث يقابل الشياكة</div>
                         <div className='hero-sub-text mb-4'>كل غرزة بتحكي حكاية</div>
-                        <button className='mt-2 hero-btn'>تسوق الآن</button>
+                        <button className='mt-2 hero-btn' onClick={() => routeToShop()}>تسوق الآن</button>
                     </div>
                 </SwiperSlide>
             </Swiper>

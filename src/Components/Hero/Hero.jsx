@@ -10,7 +10,12 @@ import heroBag1 from '../../assets/Images/image2_photogrid.png'
 import heroBag2 from '../../assets/Images/carousel-img.jpg'
 import heroBag3 from '../../assets/Images/carousel-img2.jpg'
 import {motion as Motion} from 'framer-motion'
+import { useNavigate } from 'react-router-dom';
 export default function Hero() { 
+    const navigate = useNavigate();
+    const routeToShop = () => { 
+        navigate('/shop')
+    }
     return ( 
         <Motion.div
         initial={{opacity: 0}}
@@ -33,7 +38,7 @@ export default function Hero() {
                     <div className='hero-content d-flex flex-column'>
                         <div className='hero-main-text fw-bold'>New Collection</div>
                         <div className='hero-sub-text mb-2'>Handcrafted with love, designed to stand out.</div>
-                        <button className='hero-btn'>Shop Now</button>
+                        <button className='hero-btn' onClick={() => routeToShop()}>Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -41,7 +46,7 @@ export default function Hero() {
                     <div className='hero-content d-flex flex-column'>
                         <div className='hero-main-text fw-bold'>Bold • Unique • You</div>
                         <div className='hero-sub-text mb-2'>Discover the charm of modern kilim bags.</div>
-                        <button className='hero-btn'>Shop Now</button>
+                        <button className='hero-btn' onClick={() => routeToShop()}>Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -49,7 +54,7 @@ export default function Hero() {
                     <div className='hero-content d-flex flex-column'>
                         <div className='hero-main-text fw-bold'>Where Tradition Meets Style</div>
                         <div className='hero-sub-text mb-2'>Every stitch tells a story.</div>
-                        <button className='hero-btn'>Shop Now</button>
+                        <button className='hero-btn' onClick={() => routeToShop()}>Shop Now</button>
                     </div>
                 </SwiperSlide>
             </Swiper>
