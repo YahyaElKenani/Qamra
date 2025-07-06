@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeLanguage } from '../../Slices/languageSlice';
 import { motion as Motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function Header({active, showBg, disableAnimation}) { 
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
@@ -57,10 +57,10 @@ export default function Header({active, showBg, disableAnimation}) {
                     <Divider sx={{borderColor: 'black'}} className='my-2 d-flex d-md-none'/>
             <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3 tabs gap-4 text-light">
-                <Nav.Link href="/#/homepage" className={`nav-tab ${active === 'home' ? 'active' : ''}`}>Home</Nav.Link>
-                <Nav.Link href="/#/shop" className={`nav-tab ${active === 'shop' ? 'active' : ''}`}>Shop</Nav.Link>
-                <Nav.Link href="/#/gallery" className={`nav-tab ${active === 'gallery' ? 'active' : ''}`}>Gallery</Nav.Link>
-                <Nav.Link href="/#/contact" className={`nav-tab ${active === 'contact' ? 'active' : ''}`}>Contact</Nav.Link>
+                <Nav.Link as={Link} to={'/homepage'} className={`nav-tab ${active === 'home' ? 'active' : ''}`}>Home</Nav.Link>
+                <Nav.Link as={Link} to={'/shop'} className={`nav-tab ${active === 'shop' ? 'active' : ''}`}>Shop</Nav.Link>
+                <Nav.Link as={Link} to={'/gallery'} className={`nav-tab ${active === 'gallery' ? 'active' : ''}`}>Gallery</Nav.Link>
+                <Nav.Link as={Link} to={'/contact'} className={`nav-tab ${active === 'contact' ? 'active' : ''}`}>Contact</Nav.Link>
                 <div className='d-md-none d-flex align-items-center gap-3'>
                     <Tooltip title ='Switch to arabic' slots={{transition: Fade}}> 
                         <LanguageIcon sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => dispatch(changeLanguage())}/>

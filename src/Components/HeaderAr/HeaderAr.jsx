@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeLanguage } from '../../Slices/languageSlice';
 import { motion as Motion } from 'framer-motion' 
+import { Link } from 'react-router-dom';
 export default function HeaderAr({active, showBg, disableAnimation}) { 
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
@@ -58,10 +59,10 @@ export default function HeaderAr({active, showBg, disableAnimation}) {
                     <Divider sx={{borderColor: 'black'}} className='my-2 d-flex d-md-none'/>
             <Offcanvas.Body>
             <Nav className="justify-content-end ar-text flex-grow-1 pe-3 tabs gap-4 text-light">
-                <Nav.Link href="/#/homepage" className={`nav-tab ${active === 'home' ? 'active' : ''}`}>الرئيسية</Nav.Link>
-                <Nav.Link href="/#/shop" className={`nav-tab ${active === 'shop' ? 'active' : ''}`}>المتجر</Nav.Link>
-                <Nav.Link href="/#/gallery" className={`nav-tab ${active === 'gallery' ? 'active' : ''}`}>المعرض</Nav.Link>
-                <Nav.Link href="/#/contact" className={`nav-tab ${active === 'contact' ? 'active' : ''}`}>التواصل</Nav.Link>
+                <Nav.Link as={Link} to={'/homepage'} className={`nav-tab ${active === 'home' ? 'active' : ''}`}>الرئيسية</Nav.Link>
+                <Nav.Link as={Link} to={'/shop'} className={`nav-tab ${active === 'shop' ? 'active' : ''}`}>المتجر</Nav.Link>
+                <Nav.Link as={Link} to={'/gallery'} className={`nav-tab ${active === 'gallery' ? 'active' : ''}`}>المعرض</Nav.Link>
+                <Nav.Link as={Link} to={'/contact'} className={`nav-tab ${active === 'contact' ? 'active' : ''}`}>التواصل</Nav.Link>
                 <div className='d-md-none ar-text d-flex align-items-center gap-3'>
                     <Tooltip title="التغيير إلي الانجليزية" slots={{transition: Fade}}>
                         <LanguageIcon sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => dispatch(changeLanguage())}/>  
