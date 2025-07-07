@@ -11,13 +11,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeLanguage } from '../../Slices/languageSlice';
 import { motion as Motion } from 'framer-motion' 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function HeaderAr({active, showBg, disableAnimation}) { 
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
     const language = useSelector((state) => state.language.language); 
     const [showHeaderBg, setShowHeaderBg] = useState(showBg || false); 
     const [menuExpanded, setMenuExpanded] = useState(false);
+    const navigate = useNavigate();
     useEffect(() => {
         if (disableAnimation) { 
             return;
@@ -33,6 +34,9 @@ export default function HeaderAr({active, showBg, disableAnimation}) {
     useEffect(() => {
         console.log(language);
     }, [language])
+    const routeToCart = () => { 
+        navigate('/cart');
+    }
     return ( 
         <Motion.div 
         initial={{opacity: 0}}
@@ -68,7 +72,7 @@ export default function HeaderAr({active, showBg, disableAnimation}) {
                         <LanguageIcon sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => dispatch(changeLanguage())}/>  
                     </Tooltip>
                     <Badge badgeContent={cart.length} color='primary' >
-                        <ShoppingCartIcon color='action' sx={{fontSize: '2rem'}} className='icon text-light'/>
+                        <ShoppingCartIcon color='action' sx={{fontSize: '2rem'}} className='icon text-light' onClick={() => routeToCart()}/>
                     </Badge>
                 </div>
             </Nav>
@@ -81,7 +85,7 @@ export default function HeaderAr({active, showBg, disableAnimation}) {
                     <LanguageIcon sx={{fontSize: '2rem'}} className='icon text-light' color='action' onClick={() => dispatch(changeLanguage())}/>
                 </Tooltip>
                     <Badge badgeContent={cart.length} color='primary' >
-                        <ShoppingCartIcon color='action' sx={{fontSize: '2rem'}} className='icon text-light' />
+                        <ShoppingCartIcon color='action' sx={{fontSize: '2rem'}} className='icon text-light'  onClick={() => routeToCart()}/>
                     </Badge>
             </div>
         </Motion.div>

@@ -1,0 +1,25 @@
+.contact-page-container { 
+    padding: 150px 7vw;
+    width: 60dvw;
+    margin: auto;
+}
+
+textarea { 
+    min-height: 250px;
+}
+
+.contact-page-container-ar { 
+    direction: rtl;
+}
+
+@media screen and (max-width: 767px) {
+    .contact-page-container label,
+    .contact-page-container h3 { 
+        font-size: 18px !important;
+    }
+    .contact-page-container h1 { 
+        font-size: 32px !important;
+        text-wrap: nowrap;
+        font-weight: bold;
+    }
+}

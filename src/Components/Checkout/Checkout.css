@@ -1,0 +1,79 @@
+.checkout-page-container { 
+    padding: 150px 7vw;
+}
+
+
+.checkout-container { 
+    width: 70dvw;
+}
+
+.checkout-page-container-ar { 
+    direction: rtl;
+}
+
+input,
+select,
+textarea { 
+    padding: 24px 12px;
+    width: 70%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: none;
+    border-radius: 25px;
+    background-color: 	#f2f1ee;
+}
+
+input:focus,
+select:focus,
+textarea:focus { 
+    outline: none;
+}
+
+input#email-contact,
+input#whatsapp-contact { 
+    max-width: 30px;
+}
+
+#notes { 
+    min-height: 200px;
+}
+
+label:not(#contact-label) { 
+    font-size: clamp(24px, 0.8vw, 42px);
+    font-weight: bold;
+}
+
+label#contact-label { 
+    font-size: clamp(16px, 0.6vw, 32px) !important;
+}
+
+@media screen and (max-width: 767px) {
+    .checkout-container { 
+        width: 100dvw;
+    }
+    input,
+    select,
+    textarea {
+        width: 90%;
+        padding: 12px;
+    }
+
+    .checkout-page-container { 
+        flex-direction: column-reverse;
+    }
+
+    .order-summary { 
+        min-width: 350px !important;
+        margin: 5dvh 0 !important;
+    }
+
+    .order-summary-btn { 
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+}

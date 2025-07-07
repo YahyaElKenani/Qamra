@@ -7,14 +7,21 @@ import { FaMinus } from "react-icons/fa";
 import { decreaseQuantity, increaseQuantity, removeFromCart } from '../../Slices/cartSlice';
 import { Button } from 'react-bootstrap';
 import { FaRegTrashAlt } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+import { motion as Motion } from 'framer-motion'
 export default function CartAr() { 
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate(); 
     useEffect(() => {
         console.log(cart);
     }, [cart])
     return ( 
-        <section className='cart-container cart-container-ar ar-text d-flex flex-column'>
+        <Motion.section
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{duration: 0.5}}
+        className='cart-container cart-container-ar ar-text d-flex flex-column'>
             <div className='cart-heading'> 
                 <h1 className='mb-4'>السلة</h1>
                 <Divider style={{borderColor: 'black'}} />
@@ -30,6 +37,7 @@ export default function CartAr() {
                                     <div>{product.price} جنيه </div>
                                 </div>
                                 <div className='text-secondary'>الكمية: {product.quantity}</div>
+                                <div className='text-secondary'>اللون: {product.color}</div>
                                 <div className='cart-btns d-flex gap-2 mt-3'> 
                                         <Tooltip title='انقاص الكمية'> 
                                     <button className='cart-btn' onClick={() => dispatch(decreaseQuantity(product.id))}>
@@ -48,9 +56,9 @@ export default function CartAr() {
                             </div>
                         </div>)
                     }
-                    <button className='w-100 fs-4 fw-bold'>Checkout</button>
+                    <button className='w-100 fs-4 fw-bold' onClick={() => navigate('/checkout')}>اكمال الطلب</button>
                 </div>
             </div>
-        </section>
+        </Motion.section>
     )
 }

@@ -1,0 +1,23 @@
+.order-summary { 
+    padding: 24px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 20dvw;
+    min-width: 450px;
+    border-radius: 24px;
+    margin-top: 10vh;
+}
+
+.order-summary-items { 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vh;
+}
+
+.order-summary-btn {
+    width: 2vw;
+    min-width: 40px;
+}
+
+.order-summary-ar { 
+    direction: rtl;
+}

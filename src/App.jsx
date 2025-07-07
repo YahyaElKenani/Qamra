@@ -6,6 +6,8 @@ import Shop from './Pages/Shop/Shop'
 import ProductDetails from './Pages/ProductDetails/ProductDetails'
 import Gallery from './Pages/Gallery/Gallery'
 import CartPage from './Pages/CartPage/CartPage'
+import CheckoutPage from './Pages/CheckoutPage/CheckoutPage'
+import ContactPage from './Pages/ContactPage/ContactPage'
 export default function App() {
   return (
     <>
@@ -17,6 +19,8 @@ export default function App() {
           <Route path='/product/:productId' element={<ProductDetails/>} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/cart' element={<CartPage />} />
+          <Route path='/checkout' element={<CheckoutPage />} />
+          <Route path='/contact' element={<ContactPage />} />
         </Routes>
       </Router>
     </>

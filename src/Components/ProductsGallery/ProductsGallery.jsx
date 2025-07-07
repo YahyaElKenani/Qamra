@@ -2,6 +2,7 @@ import { Divider } from '@mui/material'
 import './ProductsGallery.css'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
+import { motion as Motion } from 'framer-motion'
 export default function ProductsGallery() { 
     const [productsImages, setProductsImage] = useState([]);
     const [gallery, setGallery] = useState([]);
@@ -20,7 +21,11 @@ export default function ProductsGallery() {
         console.log(gallery);
     }, [gallery])
     return ( 
-        <section className='gallery-container'> 
+        <Motion.section
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{duration: 0.5}}
+        className='gallery-container'> 
             <div className='section-header'>
                 <h1>Gallery</h1>
                 <Divider style={{borderColor: 'black'}}/>
@@ -30,6 +35,6 @@ export default function ProductsGallery() {
                     gallery.map((product) => <img className='gallery-item' key={Math.random()} src={product} />)
                 }
             </div>
-        </section>
+        </Motion.section>
     )
 }
