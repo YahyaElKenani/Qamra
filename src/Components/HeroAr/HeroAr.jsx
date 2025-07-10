@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-fade';
 import './HeroAr.css'
-import heroBag1 from '../../assets/Images/image2_photogrid.png'
+import heroBag1 from '../../assets/Images/image2_PhotoGrid.png'
 import heroBag2 from '../../assets/Images/carousel-img.jpg'
 import heroBag3 from '../../assets/Images/carousel-img2.jpg'
 import { motion as Motion } from 'framer-motion'
