@@ -25,7 +25,7 @@ export default function LatestProducts() {
             </div>
             <Motion.button
             whileHover={{scale: 1.05, opacity: .8}}
-            className='mt-3 card-btn' style={{fontSize: '1.4rem', height:'70px', width: '150px'}} onClick={() => routeToShop()}>Show All</Motion.button>
+            className='mt-3 card-btn show-all-btn d-flex align-items-center justify-content-center' style={{fontSize: '1.4rem', height:'70px', width: '150px'}} onClick={() => routeToShop()}>Show All</Motion.button>
         </Motion.div>
     )
 }

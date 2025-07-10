@@ -40,6 +40,11 @@
 
     .cart-product-data { 
         width: 50dvw;
+        font-size: 12px !important;
+    }
+
+    .order-quantity-color { 
+        flex-direction: row !important;
     }
 
     .cart-btn { 

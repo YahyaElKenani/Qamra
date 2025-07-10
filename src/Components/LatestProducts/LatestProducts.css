@@ -10,3 +10,9 @@
 .latest-products-heading { 
     text-wrap: nowrap;
 }
+
+@media screen and (max-width: 767px) {
+    .show-all-btn { 
+        height: 40px !important;
+    }
+}

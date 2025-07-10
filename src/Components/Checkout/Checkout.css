@@ -61,6 +61,10 @@ label#contact-label {
         flex-direction: column-reverse;
     }
 
+    label { 
+        font-size: 16px !important;
+    }
+
     .order-summary { 
         min-width: 350px !important;
         margin: 5dvh 0 !important;

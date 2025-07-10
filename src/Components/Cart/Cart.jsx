@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { decreaseQuantity, increaseQuantity, removeFromCart } from '../../Slices/cartSlice';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { motion as Motion } from 'framer-motion'
@@ -22,7 +22,10 @@ export default function Cart() {
         animate={{opacity: 1}}
         transition={{duration: 0.5}}
         className='cart-container d-flex flex-column'>
-            <div className='cart-heading'> 
+            { 
+                cart.length !== 0 &&
+                <> 
+                <div className='cart-heading'> 
                 <h1>Cart</h1>
                 <Divider style={{borderColor: 'black'}} />
             </div>
@@ -36,8 +39,10 @@ export default function Cart() {
                                     <div>{product.name}</div>
                                     <div>{product.price} EGP</div>
                                 </div>
-                                <div className='text-secondary'>Quantity: {product.quantity}</div>
-                                <div className='text-secondary'>Color: {product.color}</div>
+                                <div className='order-quantity-color d-flex flex-column gap-3 gap-md-0'>
+                                    <div className='text-secondary'>Quantity: {product.quantity}</div>
+                                    <div className='text-secondary'>Color: {product.color}</div>
+                                </div>
                                 <div className='cart-btns d-flex gap-2 mt-3'> 
                                         <Tooltip title='Decrease Quantity'> 
                                     <button className='cart-btn' onClick={() => dispatch(decreaseQuantity(product.id))}>
@@ -59,6 +64,8 @@ export default function Cart() {
                     <button className='w-100 fs-4 fw-bold' onClick={() => navigate('/checkout')}>Checkout</button>
                 </div>
             </div>
+                </>
+            }
         </Motion.section>
     )
 }

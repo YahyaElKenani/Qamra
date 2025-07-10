@@ -1,21 +1,35 @@
-import { Divider, Tooltip } from '@mui/material'
+import { Divider, Tooltip, Alert } from '@mui/material'
 import './ProductAr.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoBagHandleOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { addToCart } from '../../Slices/cartSlice';
 import { motion as Motion } from 'framer-motion';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 export default function ProductAr({id}) { 
     const product = useSelector((state) => state.products.products).find((item) => item.id === +id);
     const [activeitem, setActiveItem] = useState(0);
     const dispatch = useDispatch();
     const [bagColor, setBagColor] = useState('');
+    const [colorMissing, setColorMissing] = useState(false);
     const addToOrderList = () => { 
-        if (bagColor) { 
-            dispatch(addToCart({...product, quantity: product.quantity + 1 || 1, color: bagColor}));
-        } else { 
-            console.log(`bag color is missing`);
-        }
+            setColorMissing(false);
+            if (bagColor) { 
+                dispatch(addToCart({...product, quantity: product.quantity + 1 || 1, color: bagColor}));
+                toast.success(`${product.name} اضيفت للسلة`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+                });
+            } else { 
+                setColorMissing(true);
+            }
     }
     return ( 
         <Motion.section
@@ -23,6 +37,21 @@ export default function ProductAr({id}) {
         animate={{opacity: 1}}
         transition={{duration: 0.5}}
         className="product-container product-container-ar"> 
+        <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        style={{zIndex: '99999999999999999999999999999999999999999'}}
+        className='ar-text'
+        transition={Bounce}
+        />
             <div className='section-header ar-text'>
                 <h1 className='mb-4'>تفاصيل المُنتج</h1>
                 <Divider style={{borderColor: 'black'}}/>
@@ -57,6 +86,7 @@ export default function ProductAr({id}) {
                             </Tooltip>
                         </div>
                         <input type='text' placeholder='اختر اللون ( كل الالوان متاحة )' style={{width: '100%'}} onChange={(e) => setBagColor(e.target.value)} />
+                        <Alert variant="filled" className='ar-text' severity="error" sx={ colorMissing ? {width: '100%'} : {display: 'none'}}> اللون مطلوب </Alert>
                         <button style={{width: '100%', height: '5vh', fontSize: 'clamp(16px, 3vw, 24px)'}} 
                         onClick={() => addToOrderList()}
                         className='d-flex justify-content-center align-items-center gap-2'>

@@ -20,3 +20,13 @@
 .hero-btn { 
     color: #5E616A;
 }
+
+@media screen and (max-width: 767px) {
+    .card { 
+        min-width: 280px !important;
+    }
+    .card-btn { 
+        width: 100%;
+        font-size: 20px !important;
+    }
+}

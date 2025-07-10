@@ -22,4 +22,7 @@ textarea {
         text-wrap: nowrap;
         font-weight: bold;
     }
+    .contact-field { 
+        width: 300px;
+    }
 }
